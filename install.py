@@ -1,19 +1,35 @@
 import subprocess
 import os
+import datetime
+
+def main():
+    install()
+    uninstall()
 
 def install():
-    code = subprocess.call(["msiexec", "/a", "JaCartaUnifiedClient_2.11.0.1754_win-x64_ru-Ru.msi", "/quiet", "/log", "install_log.txt"])
+    time_now = str(datetime.datetime.now())
+    print(time_now + "    Unified client installation running")
+    code = subprocess.call(["msiexec", "/i", "JaCartaUnifiedClient_2.11.0.1754_win-x64_ru-Ru.msi", "/quiet", "/log", "install_log.txt"])
     if code == 0:
-        print("Success!")
+        time_now = str(datetime.datetime.now())
+        print(time_now + "    Unified client was installed!")
     else:
-        print("Error!")
-        print(code)
+        time_now = str(datetime.datetime.now())
+        print(time_now + "    Error!\n" + "Code: " + str(code))
+        
 
 def uninstall():
+    time_now = str(datetime.datetime.now())
+    print(time_now + "    Unified client remove running")
     code = subprocess.call(["msiexec", "/uninstall", "JaCartaUnifiedClient_2.11.0.1754_win-x64_ru-Ru.msi", "/q", "/log", "uninstal_log.txt"])
     if code == 0:
-        print("Success!")
+        time_now = str(datetime.datetime.now())
+        print(time_now + "    Unified client was removed!")
     else:
-        print("Error!")
+        time_now = str(datetime.datetime.now())
+        print(time_now + "    Error!\n" + "Code: " + str(code))
 
-install()
+
+if __name__ == "__main__":
+    main()
+    
