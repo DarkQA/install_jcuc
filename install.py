@@ -1,9 +1,14 @@
 import subprocess
 import os
 import datetime
+import test_modul
+
 
 def main():
     install()
+    test_modul.installed_dirs()
+
+
     # uninstall()
 
 def install():
