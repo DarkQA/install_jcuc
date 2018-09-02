@@ -4,7 +4,7 @@ import datetime
 
 def main():
     install()
-    uninstall()
+    # uninstall()
 
 def install():
     time_now = str(datetime.datetime.now())
@@ -15,7 +15,7 @@ def install():
         print(time_now + "    Unified client was installed!")
     else:
         time_now = str(datetime.datetime.now())
-        print(time_now + "    Error!\n" + "Code: " + str(code))
+        print(time_now + "    Error! You haven't permission\n" + "Code: " + str(code))
         
 
 def uninstall():
@@ -27,7 +27,7 @@ def uninstall():
         print(time_now + "    Unified client was removed!")
     else:
         time_now = str(datetime.datetime.now())
-        print(time_now + "    Error!\n" + "Code: " + str(code))
+        print(time_now + "    Error!You haven't permission\n" + "Code: " + str(code))
 
 
 if __name__ == "__main__":
